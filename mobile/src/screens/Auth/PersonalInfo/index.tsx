@@ -1,27 +1,34 @@
 import React from "react";
-
-import { View, Text, TouchableOpacity, Image } from "react-native";
-import Input from "../../../components/Input/Input";
+import { View, Text, Image, ScrollView } from "react-native";
 import { LOGO_MAIN } from "../../../../assets/logos";
-import AuthKeyboardAvoidingView from "../../../components/AuthKeyboardAvoidingView/AuthKeyboardAvoidingView";
 import { WIDTH, FONTS, COLORS } from "../../../constants";
 import { AuthNavProps } from "../../../params";
-import { FontAwesome } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
-
-const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
+import Select from "../../../Select";
+import DateTimePicker from "../../../components/DateTimePicker";
+const PersonalInfo: React.FC<AuthNavProps<"PersonalInfo">> = ({
   navigation,
   route,
 }) => {
-  const [password, setPassword] = React.useState<string>();
-  const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [email, setEmail] = React.useState("");
-  const [username, setUsername] = React.useState("");
+  const [gender, setGender] = React.useState("male");
+  const [date, setDate] = React.useState<any>({});
+  const [showMe, setShowMe] = React.useState(
+    gender === "male" ? "girls" : "boys"
+  );
+
+  console.log(date);
+
   const saveInfo = async () => {
-    navigation.navigate("PersonalInfo");
+    navigation.replace("Pictures");
   };
   return (
-    <AuthKeyboardAvoidingView>
+    <ScrollView
+      contentContainerStyle={{
+        paddingTop: 50,
+      }}
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <View
         style={{ width: WIDTH, justifyContent: "center", alignItems: "center" }}
       >
@@ -41,7 +48,7 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
             marginBottom: 10,
           }}
         >
-          Verify your Email
+          Personal Information
         </Text>
         <Text
           style={{
@@ -53,17 +60,35 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
             marginVertical: 10,
           }}
         >
-          please open your emails you will see a 6 digit verification code for
-          your account creation.
+          Please provide us with the following information so that we can be
+          able to find best matches for you.
         </Text>
-        <Input
-          placeholder="000-000"
-          value={username}
-          errorMessage={""}
-          textAlign={"center"}
-          keyboardType={"phone-pad"}
-          onChangeText={(text) => setUsername(text)}
-        />
+        {/* Gender */}
+
+        <SelectWrapper title="What is your Gender?">
+          <Select
+            data={["male", "female"]}
+            defaultValue={gender}
+            width={200}
+            setValue={setGender}
+          />
+        </SelectWrapper>
+
+        {/* Show me (girls | boys) */}
+        <SelectWrapper title="What are you interested in?">
+          <Select
+            data={["girls", "boys"]}
+            defaultValue={showMe}
+            width={200}
+            setValue={setShowMe}
+          />
+        </SelectWrapper>
+
+        {/* DOB */}
+        <SelectWrapper title="What is your birthday?">
+          <DateTimePicker setDate={setDate} />
+        </SelectWrapper>
+
         <View
           style={{
             flexDirection: "row",
@@ -161,8 +186,29 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
           }}
         />
       </View>
-    </AuthKeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
-export default VerifyEmail;
+export default PersonalInfo;
+
+const SelectWrapper: React.FC<{
+  title: string;
+}> = ({ title, children }) => (
+  <View
+    style={{
+      alignItems: "center",
+      marginBottom: 10,
+    }}
+  >
+    <Text
+      style={{
+        fontFamily: FONTS.regular,
+        marginBottom: 5,
+      }}
+    >
+      {title}
+    </Text>
+    {children}
+  </View>
+);

@@ -7,6 +7,8 @@ export type AuthParamList = {
   Login: undefined;
   Register: undefined;
   Landing: undefined;
+  PersonalInfo: undefined;
+  Pictures: undefined;
   TermsAndConditions: undefined;
   ForgotPassword: undefined;
   ResetPassword: undefined;

@@ -10,6 +10,8 @@ import {
   TermsAndConditions,
   VerifyEmail,
   ForgotPassword,
+  Pictures,
+  PersonalInfo,
 } from "../../screens/Auth";
 
 const Stack = createStackNavigator<AuthParamList | any>();
@@ -22,6 +24,7 @@ const AuthStack = () => {
       }}
     >
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
       <Stack.Screen name="Landing" component={Landing} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="AuthProfile" component={AuthProfile} />
@@ -29,6 +32,7 @@ const AuthStack = () => {
       <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
       <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+      <Stack.Screen name="Pictures" component={Pictures} />
     </Stack.Navigator>
   );
 };

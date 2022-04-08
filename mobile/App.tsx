@@ -8,6 +8,7 @@ import Center from "./src/components/Center/Center";
 import Routes from "./src/pages";
 import ReduxProvider from "./src/providers/ReduxProvider";
 import Container from "./src/components/Container/Container";
+import { COLORS } from "./src/constants";
 
 const App = () => {
   const [loaded] = useFonts({
@@ -20,10 +21,9 @@ const App = () => {
   });
   LogBox.ignoreLogs;
   if (!loaded) {
-    console.log("Not Loaded");
     return (
       <Center>
-        <WaveIndicator color="cornflowerblue" size={50} />
+        <WaveIndicator color={COLORS.main} size={50} />
       </Center>
     );
   }

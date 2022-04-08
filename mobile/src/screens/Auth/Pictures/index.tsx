@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import Input from "../../../components/Input/Input";
 import { LOGO_MAIN } from "../../../../assets/logos";
 import AuthKeyboardAvoidingView from "../../../components/AuthKeyboardAvoidingView/AuthKeyboardAvoidingView";
@@ -8,20 +8,28 @@ import { WIDTH, FONTS, COLORS } from "../../../constants";
 import { AuthNavProps } from "../../../params";
 import { FontAwesome } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
+import PicturePicker from "../../../components/PicturePicker";
 
-const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
+const Pictures: React.FC<AuthNavProps<"Pictures">> = ({
   navigation,
   route,
 }) => {
-  const [password, setPassword] = React.useState<string>();
-  const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [email, setEmail] = React.useState("");
-  const [username, setUsername] = React.useState("");
+  const [image1, setImage1] = React.useState<any>(null);
+  const [image2, setImage2] = React.useState<any>(null);
+  const [image3, setImage3] = React.useState<any>(null);
+  const [image4, setImage4] = React.useState<any>(null);
+
   const saveInfo = async () => {
     navigation.navigate("PersonalInfo");
   };
   return (
-    <AuthKeyboardAvoidingView>
+    <ScrollView
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingTop: 50,
+      }}
+    >
       <View
         style={{ width: WIDTH, justifyContent: "center", alignItems: "center" }}
       >
@@ -41,7 +49,7 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
             marginBottom: 10,
           }}
         >
-          Verify your Email
+          Set Pictures
         </Text>
         <Text
           style={{
@@ -53,17 +61,26 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
             marginVertical: 10,
           }}
         >
-          please open your emails you will see a 6 digit verification code for
-          your account creation.
+          setting your pictures helps people to easily identify you.
         </Text>
-        <Input
-          placeholder="000-000"
-          value={username}
-          errorMessage={""}
-          textAlign={"center"}
-          keyboardType={"phone-pad"}
-          onChangeText={(text) => setUsername(text)}
-        />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <PicturePicker setImage={setImage1} />
+          <PicturePicker setImage={setImage2} />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <PicturePicker setImage={setImage3} />
+          <PicturePicker setImage={setImage4} />
+        </View>
         <View
           style={{
             flexDirection: "row",
@@ -161,8 +178,8 @@ const VerifyEmail: React.FC<AuthNavProps<"VerifyEmail">> = ({
           }}
         />
       </View>
-    </AuthKeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
-export default VerifyEmail;
+export default Pictures;

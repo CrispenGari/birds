@@ -6,3 +6,5 @@ export { default as ResetPassword } from "./ResetPassword";
 export { default as TermsAndConditions } from "./TermsAndConditions";
 export { default as AuthProfile } from "./AuthProfile";
 export { default as VerifyEmail } from "./VerifyEmail";
+export { default as PersonalInfo } from "./PersonalInfo";
+export { default as Pictures } from "./Pictures";
