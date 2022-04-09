@@ -42,7 +42,7 @@ const Register: React.FC<AuthNavProps<"Register">> = ({
             marginBottom: 10,
           }}
         >
-          {route.name.toLocaleLowerCase()}
+          {route.name}
         </Text>
         <Input
           placeholder="username"

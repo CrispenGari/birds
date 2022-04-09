@@ -16,8 +16,6 @@ const PersonalInfo: React.FC<AuthNavProps<"PersonalInfo">> = ({
     gender === "male" ? "girls" : "boys"
   );
 
-  console.log(date);
-
   const saveInfo = async () => {
     navigation.replace("Pictures");
   };

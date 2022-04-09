@@ -34,10 +34,10 @@ const Login: React.FC<AuthNavProps<"Login">> = ({ navigation, route }) => {
             marginBottom: 10,
           }}
         >
-          {route.name.toLocaleLowerCase()}
+          {route.name}
         </Text>
         <Input
-          placeholder="username"
+          placeholder="username or email"
           value={username}
           errorMessage={""}
           onChangeText={(text) => setUsername(text)}
@@ -99,6 +99,26 @@ const Login: React.FC<AuthNavProps<"Login">> = ({ navigation, route }) => {
           applyPad
         />
 
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={{
+            alignSelf: "flex-end",
+            marginHorizontal: 10,
+          }}
+          onPress={() => {
+            navigation.push("RequestForgotPassword");
+          }}
+        >
+          <Text
+            style={{
+              color: COLORS.main,
+              fontFamily: FONTS.regular,
+            }}
+          >
+            Forgot password?
+          </Text>
+        </TouchableOpacity>
+
         <Button
           type="outline"
           title="login"
@@ -137,7 +157,7 @@ const Login: React.FC<AuthNavProps<"Login">> = ({ navigation, route }) => {
             color: "black",
           }}
         >
-          already have an account?
+          new user of birds?
         </Text>
         <Button
           type="outline"

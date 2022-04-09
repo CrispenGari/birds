@@ -10,16 +10,12 @@ export type AuthParamList = {
   PersonalInfo: undefined;
   Pictures: undefined;
   TermsAndConditions: undefined;
-  ForgotPassword: undefined;
   ResetPassword: undefined;
-  AuthProfile: {
-    userId: number;
-  };
+  RequestForgotPassword: undefined;
   VerifyEmail: {
     username: string;
   };
 };
-
 export type AuthNavProps<T extends keyof AuthParamList> = {
   navigation: StackNavigationProp<AuthParamList, T>;
   route: RouteProp<AuthParamList, T>;
