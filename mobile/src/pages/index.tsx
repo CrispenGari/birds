@@ -8,7 +8,7 @@ const Routes = () => {
   const user: any = null;
   return (
     <NavigationContainer>
-      {user ? <AppTabs /> : <AuthStack />}
+      {!user ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );
 };

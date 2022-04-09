@@ -2,7 +2,7 @@ import { Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
 import SelectDropdown from "react-native-select-dropdown";
-import { COLORS, FONTS } from "../constants";
+import { COLORS, FONTS } from "../../constants";
 
 interface Props {
   data: string[] | number[];

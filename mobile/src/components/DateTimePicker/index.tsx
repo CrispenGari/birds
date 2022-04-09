@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import Select from "../../Select";
+import Select from "../Select";
 
 const currentYear = new Date().getFullYear();
 const range = (start: number, stop: number, step: number) =>

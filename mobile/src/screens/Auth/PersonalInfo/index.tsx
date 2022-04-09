@@ -4,7 +4,7 @@ import { LOGO_MAIN } from "../../../../assets/logos";
 import { WIDTH, FONTS, COLORS } from "../../../constants";
 import { AuthNavProps } from "../../../params";
 import { Button } from "react-native-elements";
-import Select from "../../../Select";
+import Select from "../../../components/Select";
 import DateTimePicker from "../../../components/DateTimePicker";
 const PersonalInfo: React.FC<AuthNavProps<"PersonalInfo">> = ({
   navigation,
