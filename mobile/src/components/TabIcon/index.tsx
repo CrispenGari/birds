@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import { FONTS } from "../../constants";
+import { COLORS, FONTS } from "../../constants";
 
 interface IconI {
   IconComponent: any;
@@ -31,7 +31,7 @@ const TabIcon: React.FC<Props> = ({
           position: "absolute",
           width: 15,
           height: 15,
-          backgroundColor: "cornflowerblue",
+          backgroundColor: COLORS.main,
           top: -2,
           right: 3,
           borderRadius: 15,
@@ -57,7 +57,7 @@ const TabIcon: React.FC<Props> = ({
         <Icon.IconComponent
           name={Icon.name}
           size={!isCreate ? 30 : 40}
-          color={focused ? "cornflowerblue" : "gray"}
+          color={focused ? COLORS.main : "gray"}
         />
       ) : (
         <Image

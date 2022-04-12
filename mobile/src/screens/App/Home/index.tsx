@@ -1,18 +1,50 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import { TouchableOpacity, Image } from "react-native";
+import { LOGO_MAIN } from "../../../../assets/logos";
+import { FONTS, COLORS } from "../../../constants";
 import { AppNavProps, HomeStackParamList } from "../../../params";
+import Cards from "./Cards";
+import Profile from "./Profile";
 
-import Feed from "./Feed";
 const Stack = createStackNavigator<HomeStackParamList>();
 const Home: React.FC<AppNavProps<"Home">> = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        title: "Matches",
+        headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontFamily: FONTS.regular,
+          color: COLORS.main,
+        },
+        headerLeft: () => (
+          <Image
+            source={{ uri: Image.resolveAssetSource(LOGO_MAIN).uri }}
+            style={{
+              width: 45,
+              height: 45,
+              tintColor: COLORS.main,
+            }}
+          />
+        ),
+        headerStyle: {
+          elevation: 0,
+          borderBottomColor: "transparent",
+          borderWidth: 0,
+        },
+        headerLeftContainerStyle: {
+          paddingHorizontal: 5,
+          paddingVertical: 3,
+        },
+        headerRightContainerStyle: {
+          paddingHorizontal: 5,
+        },
       }}
-      initialRouteName="Feed"
+      initialRouteName="Cards"
     >
-      <Stack.Screen name="Feed" component={Feed} />
+      <Stack.Screen name="Cards" component={Cards} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 };

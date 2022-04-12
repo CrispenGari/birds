@@ -24,11 +24,8 @@ export type AuthNavProps<T extends keyof AuthParamList> = {
 //  Application Param Lists
 export type AppParamList = {
   Home: undefined;
-  Profile: {
-    userId: number;
-  };
   Notifications: undefined;
-  Settings: undefined;
+  Chats: undefined;
 };
 
 export type AppNavProps<T extends keyof AppParamList> = {
@@ -39,7 +36,8 @@ export type AppNavProps<T extends keyof AppParamList> = {
 // Home Param List
 
 export type HomeStackParamList = {
-  Feed: undefined;
+  Cards: undefined;
+  Profile: undefined;
 };
 
 export type HomeStackNavProps<T extends keyof HomeStackParamList> = {
@@ -47,49 +45,27 @@ export type HomeStackNavProps<T extends keyof HomeStackParamList> = {
   route: RouteProp<HomeStackParamList, T>;
 };
 
-// Feed Stack
-export type FeedStackParamList = {
-  Posts: undefined;
-  Profile: {
-    userId: number;
-  };
-  CreatePost: undefined;
-  Comments: {
-    posts: any;
-  };
+// Chats Param List
+
+export type ChatsStackParamList = {
+  ChatsMain: undefined;
+  Profile: undefined;
+  Chat: undefined;
 };
 
-export type FeedStackNavProps<T extends keyof FeedStackParamList> = {
-  navigation: StackNavigationProp<FeedStackParamList, T>;
-  route: RouteProp<FeedStackParamList, T>;
+export type ChatsStackNavProps<T extends keyof ChatsStackParamList> = {
+  navigation: BottomTabNavigationProp<ChatsStackParamList, T>;
+  route: RouteProp<ChatsStackParamList, T>;
 };
-
-// Settings Stack
-export type SettingsStackParamList = {
-  Main: undefined;
-  EditProfile: undefined;
-  Profile: {
-    userId: number;
-  };
-  ChangeField: {
-    field: string;
-  };
-};
-
-export type SettingsStackNavProps<T extends keyof SettingsStackParamList> = {
-  navigation: StackNavigationProp<SettingsStackParamList, T>;
-  route: RouteProp<SettingsStackParamList, T>;
-};
-
 // Notification stack
-// Settings Stack
-export type NotificationStackParamList = {
-  Main: undefined;
+export type NotificationsStackParamList = {
+  NotificationsMain: undefined;
+  Profile: undefined;
 };
 
-export type NotificationStackNavProps<
-  T extends keyof NotificationStackParamList
+export type NotificationsStackNavProps<
+  T extends keyof NotificationsStackParamList
 > = {
-  navigation: StackNavigationProp<NotificationStackParamList, T>;
-  route: RouteProp<SettingsStackParamList, T>;
+  navigation: BottomTabNavigationProp<NotificationsStackParamList, T>;
+  route: RouteProp<NotificationsStackParamList, T>;
 };
