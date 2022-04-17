@@ -17,7 +17,6 @@ const AppTabs = () => {
       screenOptions={{
         headerShown: false,
         tabBarHideOnKeyboard: true,
-
         tabBarStyle: {
           elevation: 0,
           borderWidth: 0,

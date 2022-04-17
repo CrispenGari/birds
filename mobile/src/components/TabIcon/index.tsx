@@ -10,20 +10,11 @@ interface Props {
   dot?: boolean;
   title?: string;
   Icon?: IconI;
-  avatar?: any;
   focused: boolean;
   color?: string;
   size?: number;
-  isCreate?: boolean;
 }
-const TabIcon: React.FC<Props> = ({
-  title,
-  focused,
-  Icon,
-  avatar,
-  dot,
-  isCreate,
-}) => {
+const TabIcon: React.FC<Props> = ({ title, focused, Icon, dot }) => {
   const Badge = () => {
     return (
       <View
@@ -56,19 +47,18 @@ const TabIcon: React.FC<Props> = ({
       {Icon ? (
         <Icon.IconComponent
           name={Icon.name}
-          size={!isCreate ? 30 : 40}
+          size={30}
           color={focused ? COLORS.main : "gray"}
         />
-      ) : (
-        <Image
-          source={{ uri: avatar }}
-          style={{
-            width: 45,
-            height: 45,
-            borderRadius: 50,
-          }}
-        />
-      )}
+      ) : null}
+      <Text
+        style={{
+          fontFamily: FONTS.regular,
+          color: focused ? COLORS.main : "gray",
+        }}
+      >
+        {title?.toLowerCase()}
+      </Text>
     </View>
   );
 };

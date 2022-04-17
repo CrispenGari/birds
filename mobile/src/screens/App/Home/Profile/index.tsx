@@ -2,6 +2,8 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { HomeStackNavProps } from "../../../../params";
 import { LOGO_MAIN } from "../../../../../assets/logos";
+import ProfileAvatar from "../../../../components/ProfileAvatar";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Profile: React.FC<HomeStackNavProps<"Profile">> = ({ navigation }) => {
   React.useLayoutEffect(() => {
@@ -9,16 +11,7 @@ const Profile: React.FC<HomeStackNavProps<"Profile">> = ({ navigation }) => {
     if (mounted) {
       navigation.setOptions({
         title: "Profile",
-        headerRight: () => (
-          <Image
-            source={{ uri: Image.resolveAssetSource(LOGO_MAIN).uri }}
-            style={{
-              width: 45,
-              height: 45,
-              borderRadius: 45,
-            }}
-          />
-        ),
+        headerRight: () => <></>,
       });
     }
     return () => {
@@ -26,9 +19,13 @@ const Profile: React.FC<HomeStackNavProps<"Profile">> = ({ navigation }) => {
     };
   }, []);
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <ScrollView contentContainerStyle={{}} bounces={false} bouncesZoom={false}>
+      <ProfileAvatar />
+      {/* Avatars */}
+      {/* Names */}
+      {/* Additional Info  */}
+      {/* Changing passwords */}
+    </ScrollView>
   );
 };
 

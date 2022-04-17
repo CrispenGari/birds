@@ -18,30 +18,30 @@ const Home: React.FC<AppNavProps<"Home">> = ({ navigation }) => {
           fontFamily: FONTS.regular,
           color: COLORS.main,
         },
-        headerLeft: () => (
-          <Image
-            source={{ uri: Image.resolveAssetSource(LOGO_MAIN).uri }}
-            style={{
-              width: 45,
-              height: 45,
-              tintColor: COLORS.main,
-            }}
-          />
-        ),
+        // headerLeft: () => (
+        //   <Image
+        //     source={{ uri: Image.resolveAssetSource(LOGO_MAIN).uri }}
+        //     style={{
+        //       width: 45,
+        //       height: 45,
+        //       tintColor: COLORS.main,
+        //     }}
+        //   />
+        // ),
         headerStyle: {
           elevation: 0,
           borderBottomColor: "transparent",
           borderWidth: 0,
         },
-        headerLeftContainerStyle: {
-          paddingHorizontal: 5,
-          paddingVertical: 3,
+        headerBackTitleStyle: {
+          fontSize: 12,
+          fontFamily: FONTS.regular,
         },
         headerRightContainerStyle: {
           paddingHorizontal: 5,
         },
       }}
-      initialRouteName="Cards"
+      initialRouteName="Profile"
     >
       <Stack.Screen name="Cards" component={Cards} />
       <Stack.Screen name="Profile" component={Profile} />
