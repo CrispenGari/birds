@@ -1,11 +1,10 @@
 import {
   View,
   Text,
-  Image,
-  TouchableOpacity,
   Animated,
   SafeAreaView,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -17,7 +16,13 @@ import {
 } from "react-native-gesture-handler";
 import DATA from "../../../assets/images";
 import ProfileImage from "../ProfileImage";
-const ProfileAvatar = () => {
+import { HomeStackParamList } from "../../params";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+
+interface Props {
+  navigation: BottomTabNavigationProp<HomeStackParamList, "Profile", undefined>;
+}
+const ProfileAvatar: React.FC<Props> = ({ navigation }) => {
   const [data, setData] = React.useState(DATA);
   const scrollXIndex = React.useRef(new Animated.Value(0)).current;
   const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
@@ -43,13 +48,39 @@ const ProfileAvatar = () => {
   return (
     <View
       style={{
-        height: HEIGHT * 0.45,
+        height: HEIGHT * 0.5,
         paddingTop: 5,
         alignItems: "center",
         backgroundColor: COLORS.main,
         width: WIDTH,
       }}
     >
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          bottom: 10,
+          right: 10,
+          backgroundColor: "white",
+          zIndex: 10,
+          width: 100,
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 5,
+        }}
+        activeOpacity={0.7}
+        onPress={() => {
+          navigation.navigate("AppEditPictures");
+        }}
+      >
+        <Text
+          style={{
+            fontFamily: FONTS.regular,
+            color: COLORS.main,
+          }}
+        >
+          Edit
+        </Text>
+      </TouchableOpacity>
       <FlingGestureHandler
         key="left"
         direction={Directions.LEFT}

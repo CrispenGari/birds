@@ -8,10 +8,9 @@ import {
   ResetPassword,
   TermsAndConditions,
   VerifyEmail,
-  Pictures,
-  PersonalInfo,
   RequestForgotPassword,
 } from "../../screens/Auth";
+import { Pictures, PersonalInfo } from "../../screens/Common";
 
 const Stack = createStackNavigator<AuthParamList | any>();
 const AuthStack = () => {

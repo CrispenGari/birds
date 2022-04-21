@@ -4,6 +4,7 @@ import { HomeStackNavProps } from "../../../../params";
 import { LOGO_MAIN } from "../../../../../assets/logos";
 import ProfileAvatar from "../../../../components/ProfileAvatar";
 import { ScrollView } from "react-native-gesture-handler";
+import ProfileSummary from "../../../../components/ProfileSummary";
 
 const Profile: React.FC<HomeStackNavProps<"Profile">> = ({ navigation }) => {
   React.useLayoutEffect(() => {
@@ -20,8 +21,8 @@ const Profile: React.FC<HomeStackNavProps<"Profile">> = ({ navigation }) => {
   }, []);
   return (
     <ScrollView contentContainerStyle={{}} bounces={false} bouncesZoom={false}>
-      <ProfileAvatar />
-      {/* Avatars */}
+      <ProfileAvatar navigation={navigation} />
+      <ProfileSummary />
       {/* Names */}
       {/* Additional Info  */}
       {/* Changing passwords */}

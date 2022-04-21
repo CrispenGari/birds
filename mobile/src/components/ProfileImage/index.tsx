@@ -1,10 +1,10 @@
 import React from "react";
 import { Animated, Image } from "react-native";
-
-const VISIBLE_ITEMS: number = 3;
+import { HEIGHT } from "../../constants";
 const ITEM_WIDTH = 300;
 const ITEM_HEIGHT = 400;
 
+const VISIBLE_ITEMS: number = 3;
 interface Props {
   scrollXAnimated: any;
   index: number;
@@ -29,7 +29,6 @@ const ProfileImage: React.FC<Props> = ({ item, scrollXAnimated, index }) => {
     inputRange,
     outputRange: [1 - 1 / VISIBLE_ITEMS, 1, 0],
   });
-
   return (
     <Animated.View
       style={{
@@ -57,7 +56,7 @@ const ProfileImage: React.FC<Props> = ({ item, scrollXAnimated, index }) => {
       <Image
         style={{
           width: ITEM_WIDTH,
-          height: ITEM_HEIGHT * 0.8,
+          height: HEIGHT * 0.8 * 0.45,
           resizeMode: "cover",
         }}
         source={{ uri: Image.resolveAssetSource(item.image).uri }}

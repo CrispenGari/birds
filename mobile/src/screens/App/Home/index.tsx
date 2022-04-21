@@ -4,6 +4,7 @@ import { TouchableOpacity, Image } from "react-native";
 import { LOGO_MAIN } from "../../../../assets/logos";
 import { FONTS, COLORS } from "../../../constants";
 import { AppNavProps, HomeStackParamList } from "../../../params";
+import { PersonalInfo, Pictures } from "../../Common";
 import Cards from "./Cards";
 import Profile from "./Profile";
 
@@ -44,7 +45,9 @@ const Home: React.FC<AppNavProps<"Home">> = ({ navigation }) => {
       initialRouteName="Profile"
     >
       <Stack.Screen name="Cards" component={Cards} />
+      <Stack.Screen name="AppEditPersonalInfo" component={PersonalInfo} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="AppEditPictures" component={Pictures} />
     </Stack.Navigator>
   );
 };

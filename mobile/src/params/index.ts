@@ -39,6 +39,8 @@ export type HomeStackParamList = {
   Cards: undefined;
   Profile: undefined;
   EditProfile: undefined;
+  AppEditPictures: undefined;
+  AppEditPersonalInfo: undefined;
 };
 
 export type HomeStackNavProps<T extends keyof HomeStackParamList> = {
